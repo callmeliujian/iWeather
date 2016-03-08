@@ -70,8 +70,16 @@
 }
 
 -(void)openGPSTips{
-    UIAlertView *alet = [[UIAlertView alloc] initWithTitle:@"当前定位服务不可用" message:@"请到“设置->隐私->定位服务”中开启定位" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
-    [alet show];
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"当前定位服务不可用" message:@"请到“设置->隐私->定位服务”中开启定位" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+    
 }
 //获取定位信息
 -(void)getUSerLocation{
