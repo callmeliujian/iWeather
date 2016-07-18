@@ -1,5 +1,5 @@
 //
-//  DrawLine.h
+//  iWDrawLineView.h
 //  iWeather
 //
 //  Created by 👫 on 16/1/16.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DrawLine : UIView
+@interface iWDrawLineView : UIView
 
 @property(nonatomic,strong)    NSMutableArray *high;
 @property(nonatomic,strong)    NSMutableArray *low;

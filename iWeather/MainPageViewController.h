@@ -8,31 +8,32 @@
 
 #import <UIKit/UIKit.h>
 
-#import <AFNetworking/AFHTTPSessionManager.h>
+@class AFHTTPSessionManager;
 
-@interface MainPageViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface MainPageViewController : UIViewController
 
 {
     UITableView* mytable;
     
     NSMutableArray* shuju;
     
-    NSDateFormatter *formatter;
+
     NSDateFormatter *formatter1;
     
     AFHTTPSessionManager   *ma;
     
     NSString *shishiqiwen;
-    
-    NSMutableString *weatherdate;
-//从添加地址页传过来的地址
-    NSString *search;
-//    UITableViewCell *cell;
 
-    
-    
+//从添加地址页传过来的地址
+//    NSString *search;
+
 }
 
--(UILabel*)setLabe:(NSString*)str :(NSString*)fontName :(CGFloat)fontsize:(UIColor*)fontcolor :(CGFloat)x :(CGFloat)y;
+/**
+ 当前位置
+ 从添加地址页传过来的地址
+ */
+@property (nonatomic, strong) NSString *search;
+
 
 @end

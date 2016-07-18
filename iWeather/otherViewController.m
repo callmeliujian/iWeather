@@ -15,16 +15,30 @@
 @interface otherViewController ()
 
 {
-    UISwitch *fengsuqiyaSwitch;
-    UISwitch *ziwaixianSwitch;
-    UISwitch *pm25Switch;
-    UISwitch *chuanyiSwitch;
     
     UILabel *fengsuqiyaLabel;
     UILabel *ziwaixianLabel;
     UILabel *pm25Label;
     UILabel *chuanyiLabel;
 }
+
+/**
+ 风速气压显示开关
+ */
+@property (nonatomic, strong) UISwitch *windSpeedAndAtmosphericPressureSwitch;
+/**
+ 紫外线显示开关
+ */
+@property (nonatomic, strong) UISwitch *ultravioletSwitch;
+/**
+ pm25显示开关
+ */
+@property (nonatomic, strong) UISwitch *pm25Switch;
+/**
+ 穿衣开关
+ */
+@property (nonatomic, strong) UISwitch *clothesSwithch;
+
 
 
 
@@ -41,40 +55,40 @@
     fengsuqiyaLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 60, 200, 40)];
     fengsuqiyaLabel.text = @"不显示风速和气压";
     fengsuqiyaLabel.font = [UIFont fontWithName:FontName size:FontSize];
-    fengsuqiyaSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(300, 65, 1, 1)];
-    [fengsuqiyaSwitch setOn:[self switchHuode:@"fengsuqiya.txt"]];
-    [fengsuqiyaSwitch addTarget:self action:@selector(fsqyOpenOrClose) forControlEvents:UIControlEventValueChanged];
+    self.windSpeedAndAtmosphericPressureSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(300, 65, 1, 1)];
+    [self.windSpeedAndAtmosphericPressureSwitch setOn:[self switchHuode:@"fengsuqiya.txt"]];
+    [self.windSpeedAndAtmosphericPressureSwitch addTarget:self action:@selector(fsqyOpenOrClose) forControlEvents:UIControlEventValueChanged];
     
     
     ziwaixianLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 110, 200, 40)];
     ziwaixianLabel.font = [UIFont fontWithName:FontName size:FontSize];
     ziwaixianLabel.text = @"不显示紫外线指数";
-    ziwaixianSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(300, 115, 1, 1)];
-    [ziwaixianSwitch setOn:[self switchHuode:@"ziwaixian.txt"]];
-    [ziwaixianSwitch addTarget:self action:@selector(zwxOpenOrClose) forControlEvents:UIControlEventValueChanged];
+    self.ultravioletSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(300, 115, 1, 1)];
+    [self.ultravioletSwitch setOn:[self switchHuode:@"ziwaixian.txt"]];
+    [self.ultravioletSwitch addTarget:self action:@selector(zwxOpenOrClose) forControlEvents:UIControlEventValueChanged];
     
     pm25Label = [[UILabel alloc] initWithFrame:CGRectMake(10, 160, 200, 40)];
     pm25Label.font = [UIFont fontWithName:FontName size:FontSize];
     pm25Label.text = @"不显示pm2.5指数";
-    pm25Switch = [[UISwitch alloc] initWithFrame:CGRectMake(300, 165, 1, 1)];
-    [pm25Switch setOn:[self switchHuode:@"pm25.txt"]];
-    [pm25Switch addTarget:self action:@selector(pm25OpenOrClose) forControlEvents:UIControlEventValueChanged];
+    self.pm25Switch = [[UISwitch alloc] initWithFrame:CGRectMake(300, 165, 1, 1)];
+    [self.pm25Switch setOn:[self switchHuode:@"pm25.txt"]];
+    [self.pm25Switch addTarget:self action:@selector(pm25OpenOrClose) forControlEvents:UIControlEventValueChanged];
     
     chuanyiLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 210, 200, 40)];
     chuanyiLabel.font = [UIFont fontWithName:FontName size:FontSize];
     chuanyiLabel.text = @"不显示穿衣指数";
-    chuanyiSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(300, 215, 1, 1)];
-    [chuanyiSwitch setOn:[self switchHuode:@"chuanyi.txt"]];
-    [chuanyiSwitch addTarget:self action:@selector(cyOpenOrClose) forControlEvents:UIControlEventValueChanged];
+    self.clothesSwithch = [[UISwitch alloc] initWithFrame:CGRectMake(300, 215, 1, 1)];
+    [self.clothesSwithch setOn:[self switchHuode:@"chuanyi.txt"]];
+    [self.clothesSwithch addTarget:self action:@selector(cyOpenOrClose) forControlEvents:UIControlEventValueChanged];
     
     [self.view addSubview:fengsuqiyaLabel];
-    [self.view addSubview:fengsuqiyaSwitch];
+    [self.view addSubview:self.windSpeedAndAtmosphericPressureSwitch];
     [self.view addSubview:ziwaixianLabel];
-    [self.view addSubview:ziwaixianSwitch];
+    [self.view addSubview:self.ultravioletSwitch];
     [self.view addSubview:pm25Label];
-    [self.view addSubview:pm25Switch];
+    [self.view addSubview:self.pm25Switch];
     [self.view addSubview:chuanyiLabel];
-    [self.view addSubview:chuanyiSwitch];
+    [self.view addSubview:self.clothesSwithch];
     
     
 }
@@ -87,7 +101,7 @@
 
 -(void)fsqyOpenOrClose{
     
-    if ([fengsuqiyaSwitch isOn]) {
+    if ([self.windSpeedAndAtmosphericPressureSwitch isOn]) {
         [self switchZhuangtai:@"fengsuqiya.txt" :@"YES"];
     }else{
         [self switchZhuangtai:@"fengsuqiya.txt" :@"NO"];
@@ -97,7 +111,7 @@
 
 -(void)zwxOpenOrClose{
     
-    if ([ziwaixianSwitch isOn]) {
+    if ([self.ultravioletSwitch isOn]) {
         [self switchZhuangtai:@"ziwaixian.txt" :@"YES"];
     }else{
         [self switchZhuangtai:@"ziwaixian.txt" :@"NO"];
@@ -107,7 +121,7 @@
 
 -(void)pm25OpenOrClose{
     
-    if ([pm25Switch isOn]) {
+    if ([self.pm25Switch isOn]) {
         [self switchZhuangtai:@"pm25.txt" :@"YES"];
     } else {
         [self switchZhuangtai:@"pm25.txt" :@"NO"];
@@ -117,7 +131,7 @@
 
 -(void)cyOpenOrClose{
     
-    if ([chuanyiSwitch isOn]) {
+    if ([self.clothesSwithch isOn]) {
         [self switchZhuangtai:@"chuanyi.txt" :@"YES"];
     } else {
         [self switchZhuangtai:@"chuanyi.txt" :@"NO"];

@@ -77,7 +77,7 @@
         notification.repeatInterval = NSCalendarUnitDay;
     } else {
         // 通知重复提示的单位，可以是天、周、月
-        notification.repeatInterval = NSDayCalendarUnit;
+        notification.repeatInterval = NSCalendarUnitDay;
     }
     
     // 执行通知注册

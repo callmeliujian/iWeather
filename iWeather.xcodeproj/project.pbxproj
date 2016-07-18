@@ -8,9 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		0099C46A052FBD3794B97ABA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA0E6155F8EC89F326A6709 /* libPods.a */; };
-		524EA5731C4E195600E8CF3F /* cityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 524EA5721C4E195600E8CF3F /* cityData.plist */; };
+		524D55221D2DF7BC00C9CAD0 /* iWAddLocalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 524D55211D2DF7BC00C9CAD0 /* iWAddLocalTableViewController.m */; };
+		524D552B1D2F8AA600C9CAD0 /* iWDrawLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 524D552A1D2F8AA600C9CAD0 /* iWDrawLineView.m */; };
+		52693FB71D333DAD0009AA3F /* iWPersonalizationSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52693FB61D333DAD0009AA3F /* iWPersonalizationSettingViewController.m */; };
+		52693FB91D333E4B0009AA3F /* iWPersonalizationSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52693FB81D333E4B0009AA3F /* iWPersonalizationSettingViewController.xib */; };
 		52855B851C867760009D04FD /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52855B841C867760009D04FD /* Reveal.framework */; };
-		528AB16F1C4A193C00686C63 /* DrawLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 528AB16E1C4A193C00686C63 /* DrawLine.m */; };
+		52D007861CD76EFC00F18F66 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D007851CD76EFC00F18F66 /* Reveal.framework */; };
+		52EB849E1D37BEF9001D3DD7 /* iWUltravioletraysView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB849D1D37BEF9001D3DD7 /* iWUltravioletraysView.m */; };
+		52EB84A01D37BF13001D3DD7 /* iWUltravioletraysView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52EB849F1D37BF13001D3DD7 /* iWUltravioletraysView.xib */; };
+		52EB84A31D3894CF001D3DD7 /* iWPm25View.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB84A21D3894CF001D3DD7 /* iWPm25View.m */; };
+		52EB84A51D3894DE001D3DD7 /* iWPm25View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52EB84A41D3894DE001D3DD7 /* iWPm25View.xib */; };
+		52EB84A81D389A14001D3DD7 /* iWDressingIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB84A71D389A14001D3DD7 /* iWDressingIndexView.m */; };
+		52EB84AA1D389A37001D3DD7 /* iWDressingIndexView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52EB84A91D389A37001D3DD7 /* iWDressingIndexView.xib */; };
 		52F017661C45D48F00D02293 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F017651C45D48F00D02293 /* main.m */; };
 		52F017691C45D48F00D02293 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F017681C45D48F00D02293 /* AppDelegate.m */; };
 		52F0176C1C45D48F00D02293 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F0176B1C45D48F00D02293 /* ViewController.m */; };
@@ -25,7 +34,6 @@
 		52F017A31C45D59700D02293 /* MainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F017A21C45D59700D02293 /* MainPageViewController.m */; };
 		52F017A61C45D5D100D02293 /* otherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F017A51C45D5D100D02293 /* otherViewController.m */; };
 		52F017A91C45D5F800D02293 /* other1UIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F017A81C45D5F800D02293 /* other1UIViewController.m */; };
-		52F180141C45DD1B009C41CC /* plushLocalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F180131C45DD1B009C41CC /* plushLocalViewController.m */; };
 		52F180781C463402009C41CC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F180771C463402009C41CC /* Security.framework */; };
 		52F1807A1C46340F009C41CC /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F180791C46340F009C41CC /* CoreTelephony.framework */; };
 		52F1807C1C46341D009C41CC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F1807B1C46341D009C41CC /* SystemConfiguration.framework */; };
@@ -34,7 +42,13 @@
 		52F296E51C50BD080051011A /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F296E41C50BD080051011A /* LocationViewController.m */; };
 		52F296E81C50C7800051011A /* location1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F296E71C50C7800051011A /* location1ViewController.m */; };
 		52F296EB1C51C5D90051011A /* banbenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F296EA1C51C5D90051011A /* banbenViewController.m */; };
+		52F42A451D328E2C00C16405 /* iWWratherData.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F42A441D328E2C00C16405 /* iWWratherData.m */; };
+		52F42A481D328E6A00C16405 /* iWWeatherDataResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F42A471D328E6A00C16405 /* iWWeatherDataResults.m */; };
+		52F42A4B1D328E9100C16405 /* iWWeatherDataResultsIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F42A4A1D328E9100C16405 /* iWWeatherDataResultsIndex.m */; };
+		52F42A4E1D328EB600C16405 /* iWWeatherDataResultWeather_data.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F42A4D1D328EB600C16405 /* iWWeatherDataResultWeather_data.m */; };
 		52FA1B161C467E9A00C9BA15 /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52FA1B151C467E9A00C9BA15 /* libAFNetworking.a */; };
+		52FD15001CBBCD6B008262F3 /* iWCityData.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FD14FF1CBBCD6B008262F3 /* iWCityData.m */; };
+		52FD152D1CBD071A008262F3 /* cityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52FD152C1CBD071A008262F3 /* cityData.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,10 +71,25 @@
 /* Begin PBXFileReference section */
 		18D1EF031BFD2FBACBF3F4C6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4DA0E6155F8EC89F326A6709 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		524EA5721C4E195600E8CF3F /* cityData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cityData.plist; sourceTree = "<group>"; };
+		521D07051CC33EE900922452 /* RIPSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RIPSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		524D55201D2DF7BC00C9CAD0 /* iWAddLocalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iWAddLocalTableViewController.h; sourceTree = "<group>"; };
+		524D55211D2DF7BC00C9CAD0 /* iWAddLocalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iWAddLocalTableViewController.m; sourceTree = "<group>"; };
+		524D55291D2F8AA600C9CAD0 /* iWDrawLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iWDrawLineView.h; sourceTree = "<group>"; };
+		524D552A1D2F8AA600C9CAD0 /* iWDrawLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iWDrawLineView.m; sourceTree = "<group>"; };
+		52693FB51D333DAD0009AA3F /* iWPersonalizationSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iWPersonalizationSettingViewController.h; sourceTree = "<group>"; };
+		52693FB61D333DAD0009AA3F /* iWPersonalizationSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iWPersonalizationSettingViewController.m; sourceTree = "<group>"; };
+		52693FB81D333E4B0009AA3F /* iWPersonalizationSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = iWPersonalizationSettingViewController.xib; sourceTree = "<group>"; };
 		52855B841C867760009D04FD /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
-		528AB16D1C4A193C00686C63 /* DrawLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawLine.h; sourceTree = "<group>"; };
-		528AB16E1C4A193C00686C63 /* DrawLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawLine.m; sourceTree = "<group>"; };
+		52D007851CD76EFC00F18F66 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
+		52EB849C1D37BEF9001D3DD7 /* iWUltravioletraysView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iWUltravioletraysView.h; sourceTree = "<group>"; };
+		52EB849D1D37BEF9001D3DD7 /* iWUltravioletraysView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iWUltravioletraysView.m; sourceTree = "<group>"; };
+		52EB849F1D37BF13001D3DD7 /* iWUltravioletraysView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = iWUltravioletraysView.xib; sourceTree = "<group>"; };
+		52EB84A11D3894CF001D3DD7 /* iWPm25View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iWPm25View.h; sourceTree = "<group>"; };
+		52EB84A21D3894CF001D3DD7 /* iWPm25View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iWPm25View.m; sourceTree = "<group>"; };
+		52EB84A41D3894DE001D3DD7 /* iWPm25View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = iWPm25View.xib; sourceTree = "<group>"; };
+		52EB84A61D389A14001D3DD7 /* iWDressingIndexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iWDressingIndexView.h; sourceTree = "<group>"; };
+		52EB84A71D389A14001D3DD7 /* iWDressingIndexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iWDressingIndexView.m; sourceTree = "<group>"; };
+		52EB84A91D389A37001D3DD7 /* iWDressingIndexView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = iWDressingIndexView.xib; sourceTree = "<group>"; };
 		52F017611C45D48F00D02293 /* iWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F017651C45D48F00D02293 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		52F017671C45D48F00D02293 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -89,8 +118,6 @@
 		52F017A51C45D5D100D02293 /* otherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = otherViewController.m; sourceTree = "<group>"; };
 		52F017A71C45D5F800D02293 /* other1UIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = other1UIViewController.h; sourceTree = "<group>"; };
 		52F017A81C45D5F800D02293 /* other1UIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = other1UIViewController.m; sourceTree = "<group>"; };
-		52F180121C45DD1B009C41CC /* plushLocalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = plushLocalViewController.h; sourceTree = "<group>"; };
-		52F180131C45DD1B009C41CC /* plushLocalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = plushLocalViewController.m; sourceTree = "<group>"; };
 		52F180771C463402009C41CC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		52F180791C46340F009C41CC /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		52F1807B1C46341D009C41CC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -103,12 +130,30 @@
 		52F296E71C50C7800051011A /* location1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = location1ViewController.m; sourceTree = "<group>"; };
 		52F296E91C51C5D90051011A /* banbenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = banbenViewController.h; sourceTree = "<group>"; };
 		52F296EA1C51C5D90051011A /* banbenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = banbenViewController.m; sourceTree = "<group>"; };
+		52F42A431D328E2C00C16405 /* iWWratherData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iWWratherData.h; sourceTree = "<group>"; };
+		52F42A441D328E2C00C16405 /* iWWratherData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iWWratherData.m; sourceTree = "<group>"; };
+		52F42A461D328E6A00C16405 /* iWWeatherDataResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iWWeatherDataResults.h; sourceTree = "<group>"; };
+		52F42A471D328E6A00C16405 /* iWWeatherDataResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iWWeatherDataResults.m; sourceTree = "<group>"; };
+		52F42A491D328E9100C16405 /* iWWeatherDataResultsIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iWWeatherDataResultsIndex.h; sourceTree = "<group>"; };
+		52F42A4A1D328E9100C16405 /* iWWeatherDataResultsIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iWWeatherDataResultsIndex.m; sourceTree = "<group>"; };
+		52F42A4C1D328EB600C16405 /* iWWeatherDataResultWeather_data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iWWeatherDataResultWeather_data.h; sourceTree = "<group>"; };
+		52F42A4D1D328EB600C16405 /* iWWeatherDataResultWeather_data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iWWeatherDataResultWeather_data.m; sourceTree = "<group>"; };
 		52FA1B131C467E8100C9BA15 /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAFNetworking.a; path = "Pods/../build/Debug-iphoneos/libAFNetworking.a"; sourceTree = "<group>"; };
 		52FA1B151C467E9A00C9BA15 /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAFNetworking.a; path = "Pods/../build/Debug-iphoneos/libAFNetworking.a"; sourceTree = "<group>"; };
+		52FD14FE1CBBCD6B008262F3 /* iWCityData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iWCityData.h; sourceTree = "<group>"; };
+		52FD14FF1CBBCD6B008262F3 /* iWCityData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iWCityData.m; sourceTree = "<group>"; };
+		52FD152C1CBD071A008262F3 /* cityData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cityData.plist; sourceTree = "<group>"; };
 		FD06C4858CCCF2EA6834D696 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		521D07021CC33EE900922452 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52F0175E1C45D48F00D02293 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -116,6 +161,7 @@
 				52855B851C867760009D04FD /* Reveal.framework in Frameworks */,
 				52FA1B161C467E9A00C9BA15 /* libAFNetworking.a in Frameworks */,
 				52F1807E1C463427009C41CC /* CFNetwork.framework in Frameworks */,
+				52D007861CD76EFC00F18F66 /* Reveal.framework in Frameworks */,
 				52F1807C1C46341D009C41CC /* SystemConfiguration.framework in Frameworks */,
 				52F1807A1C46340F009C41CC /* CoreTelephony.framework in Frameworks */,
 				52F180781C463402009C41CC /* Security.framework in Frameworks */,
@@ -158,6 +204,7 @@
 				52F017611C45D48F00D02293 /* iWeather.app */,
 				52F0177A1C45D48F00D02293 /* iWeatherTests.xctest */,
 				52F017851C45D48F00D02293 /* iWeatherUITests.xctest */,
+				521D07051CC33EE900922452 /* RIPSimulator.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,23 +212,25 @@
 		52F017631C45D48F00D02293 /* iWeather */ = {
 			isa = PBXGroup;
 			children = (
+				52FD14FA1CBBBD8C008262F3 /* Model */,
 				52F017971C45D4A700D02293 /* LeftSlideViewController */,
-				52F017671C45D48F00D02293 /* AppDelegate.h */,
-				52F017681C45D48F00D02293 /* AppDelegate.m */,
 				52F0179E1C45D56B00D02293 /* LeftSortsViewController.h */,
 				52F0179F1C45D56B00D02293 /* LeftSortsViewController.m */,
 				52F017A11C45D59700D02293 /* MainPageViewController.h */,
 				52F017A21C45D59700D02293 /* MainPageViewController.m */,
-				528AB16D1C4A193C00686C63 /* DrawLine.h */,
-				528AB16E1C4A193C00686C63 /* DrawLine.m */,
+				524D55291D2F8AA600C9CAD0 /* iWDrawLineView.h */,
+				524D552A1D2F8AA600C9CAD0 /* iWDrawLineView.m */,
+				52693FB51D333DAD0009AA3F /* iWPersonalizationSettingViewController.h */,
+				52693FB61D333DAD0009AA3F /* iWPersonalizationSettingViewController.m */,
+				52693FB81D333E4B0009AA3F /* iWPersonalizationSettingViewController.xib */,
 				52F017A41C45D5D100D02293 /* otherViewController.h */,
 				52F017A51C45D5D100D02293 /* otherViewController.m */,
 				52F017A71C45D5F800D02293 /* other1UIViewController.h */,
 				52F017A81C45D5F800D02293 /* other1UIViewController.m */,
-				52F180121C45DD1B009C41CC /* plushLocalViewController.h */,
-				52F180131C45DD1B009C41CC /* plushLocalViewController.m */,
 				52F296E01C50B5360051011A /* NotificationViewController.h */,
 				52F296E11C50B5360051011A /* NotificationViewController.m */,
+				524D55201D2DF7BC00C9CAD0 /* iWAddLocalTableViewController.h */,
+				524D55211D2DF7BC00C9CAD0 /* iWAddLocalTableViewController.m */,
 				52F296E31C50BD080051011A /* LocationViewController.h */,
 				52F296E41C50BD080051011A /* LocationViewController.m */,
 				52F296E61C50C7800051011A /* location1ViewController.h */,
@@ -190,16 +239,15 @@
 				52F296EA1C51C5D90051011A /* banbenViewController.m */,
 				52F0176A1C45D48F00D02293 /* ViewController.h */,
 				52F0176B1C45D48F00D02293 /* ViewController.m */,
-				52F0176D1C45D48F00D02293 /* Main.storyboard */,
-				52F017701C45D48F00D02293 /* Assets.xcassets */,
-				52F017721C45D48F00D02293 /* LaunchScreen.storyboard */,
-				52F017751C45D48F00D02293 /* Info.plist */,
-				524EA5721C4E195600E8CF3F /* cityData.plist */,
-				52855B841C867760009D04FD /* Reveal.framework */,
-				52F1807D1C463427009C41CC /* CFNetwork.framework */,
-				52F1807B1C46341D009C41CC /* SystemConfiguration.framework */,
-				52F180791C46340F009C41CC /* CoreTelephony.framework */,
-				52F180771C463402009C41CC /* Security.framework */,
+				52EB849C1D37BEF9001D3DD7 /* iWUltravioletraysView.h */,
+				52EB849D1D37BEF9001D3DD7 /* iWUltravioletraysView.m */,
+				52EB849F1D37BF13001D3DD7 /* iWUltravioletraysView.xib */,
+				52EB84A11D3894CF001D3DD7 /* iWPm25View.h */,
+				52EB84A21D3894CF001D3DD7 /* iWPm25View.m */,
+				52EB84A41D3894DE001D3DD7 /* iWPm25View.xib */,
+				52EB84A61D389A14001D3DD7 /* iWDressingIndexView.h */,
+				52EB84A71D389A14001D3DD7 /* iWDressingIndexView.m */,
+				52EB84A91D389A37001D3DD7 /* iWDressingIndexView.xib */,
 				52F017641C45D48F00D02293 /* Supporting Files */,
 			);
 			path = iWeather;
@@ -208,7 +256,19 @@
 		52F017641C45D48F00D02293 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				52F017671C45D48F00D02293 /* AppDelegate.h */,
+				52F017681C45D48F00D02293 /* AppDelegate.m */,
+				52FD152C1CBD071A008262F3 /* cityData.plist */,
+				52F0176D1C45D48F00D02293 /* Main.storyboard */,
+				52F017701C45D48F00D02293 /* Assets.xcassets */,
+				52F017721C45D48F00D02293 /* LaunchScreen.storyboard */,
+				52F017751C45D48F00D02293 /* Info.plist */,
 				52F017651C45D48F00D02293 /* main.m */,
+				52855B841C867760009D04FD /* Reveal.framework */,
+				52F1807D1C463427009C41CC /* CFNetwork.framework */,
+				52F1807B1C46341D009C41CC /* SystemConfiguration.framework */,
+				52F180791C46340F009C41CC /* CoreTelephony.framework */,
+				52F180771C463402009C41CC /* Security.framework */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -242,9 +302,27 @@
 			name = LeftSlideViewController;
 			sourceTree = "<group>";
 		};
+		52FD14FA1CBBBD8C008262F3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				52FD14FE1CBBCD6B008262F3 /* iWCityData.h */,
+				52FD14FF1CBBCD6B008262F3 /* iWCityData.m */,
+				52F42A431D328E2C00C16405 /* iWWratherData.h */,
+				52F42A441D328E2C00C16405 /* iWWratherData.m */,
+				52F42A461D328E6A00C16405 /* iWWeatherDataResults.h */,
+				52F42A471D328E6A00C16405 /* iWWeatherDataResults.m */,
+				52F42A491D328E9100C16405 /* iWWeatherDataResultsIndex.h */,
+				52F42A4A1D328E9100C16405 /* iWWeatherDataResultsIndex.m */,
+				52F42A4C1D328EB600C16405 /* iWWeatherDataResultWeather_data.h */,
+				52F42A4D1D328EB600C16405 /* iWWeatherDataResultWeather_data.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		65D728B39B17595C48A00896 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				52D007851CD76EFC00F18F66 /* Reveal.framework */,
 				52FA1B151C467E9A00C9BA15 /* libAFNetworking.a */,
 				52FA1B131C467E8100C9BA15 /* libAFNetworking.a */,
 				4DA0E6155F8EC89F326A6709 /* libPods.a */,
@@ -264,6 +342,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		521D07041CC33EE900922452 /* RIPSimulator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 521D071B1CC33EE900922452 /* Build configuration list for PBXNativeTarget "RIPSimulator" */;
+			buildPhases = (
+				521D07011CC33EE900922452 /* Sources */,
+				521D07021CC33EE900922452 /* Frameworks */,
+				521D07031CC33EE900922452 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RIPSimulator;
+			productName = RIPSimulator;
+			productReference = 521D07051CC33EE900922452 /* RIPSimulator.app */;
+			productType = "com.apple.product-type.application";
+		};
 		52F017601C45D48F00D02293 /* iWeather */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52F0178E1C45D48F00D02293 /* Build configuration list for PBXNativeTarget "iWeather" */;
@@ -326,9 +421,14 @@
 		52F017591C45D48F00D02293 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = iW;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "刘健";
 				TargetAttributes = {
+					521D07041CC33EE900922452 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = SE95ND64QC;
+					};
 					52F017601C45D48F00D02293 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = SE95ND64QC;
@@ -361,19 +461,31 @@
 				52F017601C45D48F00D02293 /* iWeather */,
 				52F017791C45D48F00D02293 /* iWeatherTests */,
 				52F017841C45D48F00D02293 /* iWeatherUITests */,
+				521D07041CC33EE900922452 /* RIPSimulator */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		521D07031CC33EE900922452 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52F0175F1C45D48F00D02293 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				52F017741C45D48F00D02293 /* LaunchScreen.storyboard in Resources */,
+				52EB84A01D37BF13001D3DD7 /* iWUltravioletraysView.xib in Resources */,
+				52EB84AA1D389A37001D3DD7 /* iWDressingIndexView.xib in Resources */,
 				52F017711C45D48F00D02293 /* Assets.xcassets in Resources */,
 				52F0176F1C45D48F00D02293 /* Main.storyboard in Resources */,
-				524EA5731C4E195600E8CF3F /* cityData.plist in Resources */,
+				52FD152D1CBD071A008262F3 /* cityData.plist in Resources */,
+				52693FB91D333E4B0009AA3F /* iWPersonalizationSettingViewController.xib in Resources */,
+				52EB84A51D3894DE001D3DD7 /* iWPm25View.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,25 +554,41 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		521D07011CC33EE900922452 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52F0175D1C45D48F00D02293 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52693FB71D333DAD0009AA3F /* iWPersonalizationSettingViewController.m in Sources */,
+				52EB849E1D37BEF9001D3DD7 /* iWUltravioletraysView.m in Sources */,
+				52EB84A81D389A14001D3DD7 /* iWDressingIndexView.m in Sources */,
 				52F0179D1C45D50D00D02293 /* UIView_extra.m in Sources */,
 				52F296E81C50C7800051011A /* location1ViewController.m in Sources */,
+				52F42A4B1D328E9100C16405 /* iWWeatherDataResultsIndex.m in Sources */,
 				52F017A61C45D5D100D02293 /* otherViewController.m in Sources */,
+				52FD15001CBBCD6B008262F3 /* iWCityData.m in Sources */,
 				52F017A01C45D56B00D02293 /* LeftSortsViewController.m in Sources */,
 				52F0176C1C45D48F00D02293 /* ViewController.m in Sources */,
 				52F017691C45D48F00D02293 /* AppDelegate.m in Sources */,
+				524D552B1D2F8AA600C9CAD0 /* iWDrawLineView.m in Sources */,
+				52F42A4E1D328EB600C16405 /* iWWeatherDataResultWeather_data.m in Sources */,
+				52F42A451D328E2C00C16405 /* iWWratherData.m in Sources */,
+				52F42A481D328E6A00C16405 /* iWWeatherDataResults.m in Sources */,
 				52F296E21C50B5360051011A /* NotificationViewController.m in Sources */,
 				52F017A91C45D5F800D02293 /* other1UIViewController.m in Sources */,
 				52F296E51C50BD080051011A /* LocationViewController.m in Sources */,
 				52F017A31C45D59700D02293 /* MainPageViewController.m in Sources */,
-				52F180141C45DD1B009C41CC /* plushLocalViewController.m in Sources */,
+				524D55221D2DF7BC00C9CAD0 /* iWAddLocalTableViewController.m in Sources */,
 				52F017661C45D48F00D02293 /* main.m in Sources */,
+				52EB84A31D3894CF001D3DD7 /* iWPm25View.m in Sources */,
 				52F0179A1C45D4CB00D02293 /* LeftSlideViewController.m in Sources */,
 				52F296EB1C51C5D90051011A /* banbenViewController.m in Sources */,
-				528AB16F1C4A193C00686C63 /* DrawLine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,6 +643,28 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		521D07191CC33EE900922452 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RIPSimulator/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.HeiongjiangUniversity.LiuJian.RIPSimulator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		521D071A1CC33EE900922452 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RIPSimulator/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.HeiongjiangUniversity.LiuJian.RIPSimulator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		52F0178C1C45D48F00D02293 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -605,6 +755,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/iWeather",
+					"$(PROJECT_DIR)",
+					FRAMEWORK_SEARCH_PATHS,
+					"=",
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -658,6 +813,10 @@
 					"-lz",
 					"-framework",
 					Reveal,
+					"-ObjC",
+					"-lz",
+					"-framework",
+					Reveal,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.HeiongjiangUniversity.LiuJian.iWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -672,6 +831,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/iWeather",
+					"$(PROJECT_DIR)",
+					FRAMEWORK_SEARCH_PATHS,
+					"=",
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -782,6 +946,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		521D071B1CC33EE900922452 /* Build configuration list for PBXNativeTarget "RIPSimulator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				521D07191CC33EE900922452 /* Debug */,
+				521D071A1CC33EE900922452 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		52F0175C1C45D48F00D02293 /* Build configuration list for PBXProject "iWeather" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

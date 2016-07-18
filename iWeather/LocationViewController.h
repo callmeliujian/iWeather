@@ -10,6 +10,4 @@
 
 @interface LocationViewController : UIViewController
 
-
-
 @end

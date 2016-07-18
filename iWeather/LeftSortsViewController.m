@@ -14,6 +14,7 @@
 #import "LocationViewController.h"
 #import "location1ViewController.h"
 #import "banbenViewController.h"
+#import "iWPersonalizationSettingViewController.h"
 
 @interface LeftSortsViewController () <UITableViewDelegate,UITableViewDataSource>
 
