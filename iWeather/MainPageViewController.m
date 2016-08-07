@@ -446,10 +446,12 @@
         [self.windSpeedAndPressureImageView addSubview:smallpole];
         [self.windSpeedAndPressureImageView addSubview:blade_s];
         
-        self.windSpeedAndPressureImageView.hidden = [self switchHuode:@"fengsuqiya.txt"];
+        //self.windSpeedAndPressureImageView.hidden = [self switchHuode:@"fengsuqiya.txt"];
         
-        [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(windMillTurn) userInfo:nil repeats:YES];
+        NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(windMillTurn) object:nil];
+        [thread start];
         
+        [cell.contentView addSubview:self.windSpeedAndPressureImageView];
         
         //紫外线强度
         self.ultravioletraysView.frame = CGRectMake(5, 180, 360, 39);
@@ -482,7 +484,7 @@
         self.pm25View.frame = CGRectMake(5, 225, 360, 39);
         [cell.contentView addSubview:self.pm25View];
         
-        self.dressingIndexView.frame = CGRectMake(1, 10, 50, 50);
+        self.dressingIndexView.frame = CGRectMake(5, 275, 50, 50);
         [cell.contentView addSubview:self.dressingIndexView];
 //
 //        UIImageView *clothes = [[UIImageView alloc] initWithFrame:CGRectMake(1, 10, 50, 50)];
@@ -565,7 +567,13 @@
 
 
 -(void)windMillTurn{
-    
+    NSTimer *timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(run) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+    [[NSRunLoop currentRunLoop] run];
+}
+
+- (void)run
+{
     i++;
     i = i % 18;
     CGAffineTransform traxs = CGAffineTransformMakeRotation(3.14 * 20.0 * i / 180);
@@ -586,52 +594,54 @@
     
     if (indexPath.row == 0) {
         return [[UIScreen mainScreen] bounds].size.height;
-    }else if (indexPath.row ==1){
-        NSLog(@"********123*************");
-        CGFloat fengsuandqiyahigh;
-        CGFloat beijinghigh;
-        CGFloat pmbeijinghigh;
-        CGFloat chuanyibeijinghigh;
-        if (self.windSpeedAndPressureImageView.hidden) {
-            fengsuandqiyahigh = 0;
-            NSLog(@"隐藏");
-        }else{
-            fengsuandqiyahigh = self.windSpeedAndPressureImageView.frame.size.height;
-            NSLog(@"显示");
-        }
-        
-        if (self.UltravioletraysImageView.hidden) {
-            beijinghigh = 0;
-        }else{
-            beijinghigh = self.UltravioletraysImageView.frame.size.height;
-        }
-        
-        if (pmbeijing.hidden) {
-            pmbeijinghigh = 0;
-        }else{
-            pmbeijinghigh = self.UltravioletraysImageView.frame.size.height;
-        }
-        
-        if (chuanyibeijing.hidden) {
-            chuanyibeijing = 0;
-        }else{
-            chuanyibeijinghigh = chuanyibeijing.frame.size.height;
-        }
-        
-        NSLog(@"------%f",fengsuandqiyahigh + beijinghigh + pmbeijinghigh + chuanyibeijinghigh);
-        
-        if (fengsuandqiyahigh + beijinghigh + pmbeijinghigh + chuanyibeijinghigh != 0) {
-            return  fengsuandqiyahigh + beijinghigh + pmbeijinghigh + chuanyibeijinghigh + 10;
-        }else{
-            return fengsuandqiyahigh + beijinghigh + pmbeijinghigh + chuanyibeijinghigh;
-        }
-        
-        
-        
-        
-    }else {
-        return drawLine.frame.size.height + 10 + drawLine.frame.origin.y;
     }
+    return [[UIScreen mainScreen] bounds].size.height;
+//        else if (indexPath.row ==1){
+//        NSLog(@"********123*************");
+//        CGFloat fengsuandqiyahigh;
+//        CGFloat beijinghigh;
+//        CGFloat pmbeijinghigh;
+//        CGFloat chuanyibeijinghigh;
+//        if (self.windSpeedAndPressureImageView.hidden) {
+//            fengsuandqiyahigh = 0;
+//            NSLog(@"隐藏");
+//        }else{
+//            fengsuandqiyahigh = self.windSpeedAndPressureImageView.frame.size.height;
+//            NSLog(@"显示");
+//        }
+//        
+//        if (self.UltravioletraysImageView.hidden) {
+//            beijinghigh = 0;
+//        }else{
+//            beijinghigh = self.UltravioletraysImageView.frame.size.height;
+//        }
+//        
+//        if (pmbeijing.hidden) {
+//            pmbeijinghigh = 0;
+//        }else{
+//            pmbeijinghigh = self.UltravioletraysImageView.frame.size.height;
+//        }
+//        
+//        if (chuanyibeijing.hidden) {
+//            chuanyibeijing = 0;
+//        }else{
+//            chuanyibeijinghigh = chuanyibeijing.frame.size.height;
+//        }
+//        
+//        NSLog(@"------%f",fengsuandqiyahigh + beijinghigh + pmbeijinghigh + chuanyibeijinghigh);
+//        
+//        if (fengsuandqiyahigh + beijinghigh + pmbeijinghigh + chuanyibeijinghigh != 0) {
+//            return  fengsuandqiyahigh + beijinghigh + pmbeijinghigh + chuanyibeijinghigh + 10;
+//        }else{
+//            return fengsuandqiyahigh + beijinghigh + pmbeijinghigh + chuanyibeijinghigh;
+//        }
+//        
+//        
+//        
+//        
+//    }else {
+//        return drawLine.frame.size.height + 10 + drawLine.frame.origin.y;
+//    }
     
 }
 
