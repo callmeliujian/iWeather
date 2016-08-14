@@ -1,4 +1,4 @@
-//
+
 //  MainPageViewController.m
 //  iWeather
 //
@@ -43,51 +43,18 @@
 
 
 
-
-
 @interface MainPageViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 {
     int i;
-    
-    id value1;
-    
-    UIImageView *blade_big;
-    UIImageView *blade_s;
-    
     NSMutableDictionary *weather;
-    
     NSMutableDictionary *tmpDic;
-    
-    UITableViewCell* cell1;
-    
-    UILabel *temperature;
-    UIImageView *color1;
-    UIImageView *color2;
-    UIImageView *color3;
-    UIImageView *leftimage;
-    UILabel *zuigaoqiwen;
-    UIImageView *rightimage;
-    UILabel *zuidiqiwen;
-    UIImageView *sunORcloudimage;
-    UILabel *sunORcloud;
-    NSDictionary *responseObject1;
-    UILabel *wind;
-    UILabel *ziwaixianqiangruo;
-    UILabel *pm25;
-    UILabel *chuanyilabel;
-    
-    UIImageView *drawLine;
-    
-    //    UIImageView *fengsuandqiya;
-    //    UIImageView *beijing;
-    UIImageView *pmbeijing;
-    UIImageView *chuanyibeijing;
-    
     NSIndexPath *indexpath;
-    
 }
 
+@property(nonatomic, strong) UIImageView *blade_big;
+@property(nonatomic, strong) UIImageView *blade_s;
+@property(nonatomic, strong) UIImageView *drawLine;
 
 /**
  主气温
@@ -194,7 +161,8 @@
     [super viewDidLoad];
     
     indexpath = [[NSIndexPath alloc] initWithIndex:1];
-    
+    //初始化城市
+    self.search = @"北京";
     
     
     weather = [[NSMutableDictionary alloc] init];
@@ -225,7 +193,7 @@
     //加载pm2.5View的xib
     self.pm25View = [[[NSBundle mainBundle] loadNibNamed:@"iWPm25View" owner:nil options:nil] lastObject];
     //加载穿衣指数View的xib
-    self.dressingIndexView = [[[NSBundle mainBundle] loadNibNamed:@"iWDressingIndexView" owner:nil options:nil] lastObject];
+//    self.dressingIndexView = [[[NSBundle mainBundle] loadNibNamed:@"iWDressingIndexView" owner:nil options:nil] lastObject];
     
     
     [self.view addSubview:imageview];
@@ -236,7 +204,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     animated = YES;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jieshou:) name:@"fanhui" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jieshou:) name:@"returnCityName" object:nil];
     [self getWeather];
     [self tableView:mytable heightForRowAtIndexPath:nil];
 }
@@ -278,48 +246,7 @@
             make.top.left.equalTo(cell.contentView).offset(10);
         }];
         
-        //显示地区
-        self.search = @"哈尔滨";
-        
-        self.currentLocationLabel = [[UILabel alloc] init];
-        self.currentLocationLabel.font = [UIFont systemFontOfSize:16];
-        NSString *str = @"哈尔滨";
-        self.currentLocationLabel.text = str;
-        self.currentLocationLabel.textColor = [UIColor whiteColor];
-        [self.currentLocationLabel setFont:[UIFont fontWithName:@"Arial" size:17]];
-        self.currentLocationLabel.numberOfLines = 0;
-        self.currentLocationLabel.lineBreakMode = NSLineBreakByTruncatingTail;
-        CGSize maximumLabelSize = CGSizeMake(100, 9999);
-        CGSize expectSize = [self.currentLocationLabel sizeThatFits:maximumLabelSize];
-        [self.view addSubview:self.currentLocationLabel];
-        [self.currentLocationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.center.mas_equalTo(CGPointMake(0, -([UIScreen mainScreen].bounds.size.height)/2 + expectSize.height));
-            make.size.mas_equalTo(CGSizeMake(expectSize.width, expectSize.height));
-        }];
-        
-        //添加时间
-        NSDateFormatter *currentTimeFormatter = [[NSDateFormatter alloc] init];
-        [currentTimeFormatter setDateFormat:@"h:mm"];
-        NSDate *date = [NSDate date];
-        NSString *currentTime = [currentTimeFormatter stringFromDate:date];
-        
-        self.currentTimeLabel = [[UILabel alloc] init];
-        self.currentTimeLabel.font = [UIFont systemFontOfSize:16];
-        self.currentTimeLabel.text = currentTime;
-        self.currentTimeLabel.textColor = [UIColor whiteColor];
-        [self.currentTimeLabel setFont:[UIFont fontWithName:@"Arial" size:17]];
-        self.currentTimeLabel.numberOfLines = 0;
-        self.currentTimeLabel.lineBreakMode = NSLineBreakByTruncatingTail;
-        CGSize currentTimeLabelExpectSize = [self.currentTimeLabel sizeThatFits:maximumLabelSize];
-        [self.view addSubview:self.currentTimeLabel];
-        [self.currentTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.mas_equalTo(-9);
-            make.centerY.mas_equalTo(self.currentLocationLabel.mas_bottom).offset(10);
-            make.size.mas_equalTo(CGSizeMake(currentTimeLabelExpectSize.width, currentTimeLabelExpectSize.height));
-        }];
-        
         //添加地区按钮
-        
         self.addLocationButton = [[UIButton alloc] init];
         self.addLocationButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.addLocationButton setBackgroundImage:[UIImage imageNamed:@"editlocplus"] forState:UIControlStateNormal];
@@ -329,6 +256,52 @@
             make.top.equalTo(cell.contentView).offset(10);
             make.right.equalTo(cell.contentView).offset(-10);
         }];
+        
+        //显示地区
+        //self.search = @"哈尔滨";
+        //        self.currentLocationLabel = [[UILabel alloc] init];
+        //        self.currentLocationLabel.font = [UIFont systemFontOfSize:16];
+        //        //NSString *str = @"哈尔滨";
+        //        self.currentLocationLabel.text = @"北京";
+        //        self.currentLocationLabel.textColor = [UIColor whiteColor];
+        //        [self.currentLocationLabel setFont:[UIFont fontWithName:@"Arial" size:17]];
+        //        self.currentLocationLabel.numberOfLines = 0;
+        //        self.currentLocationLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+        //        CGSize maximumLabelSize = CGSizeMake(100, 9999);
+        //        CGSize expectSize = [self.currentLocationLabel sizeThatFits:maximumLabelSize];
+        //        [self.view addSubview:self.currentLocationLabel];
+        //        [self.currentLocationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        ////            make.center.mas_equalTo(CGPointMake(0, -([UIScreen mainScreen].bounds.size.height)/2 + expectSize.height));
+        ////            make.size.mas_equalTo(CGSizeMake(expectSize.width, expectSize.height));
+        //            //make.left.equalTo(self.menuBtn).offset(20);
+        //            //make.size.mas_equalTo(CGSizeMake(expectSize.width, expectSize.height));
+        //
+        //            make.top.equalTo(cell.contentView).offset(10);
+        //            make.left.equalTo(cell.contentView).offset(10);
+        //
+        //        }];
+        //
+        //        //添加时间
+        //        NSDateFormatter *currentTimeFormatter = [[NSDateFormatter alloc] init];
+        //        [currentTimeFormatter setDateFormat:@"h:mm"];
+        //        NSDate *date = [NSDate date];
+        //        NSString *currentTime = [currentTimeFormatter stringFromDate:date];
+        //
+        //        self.currentTimeLabel = [[UILabel alloc] init];
+        //        self.currentTimeLabel.font = [UIFont systemFontOfSize:16];
+        //        self.currentTimeLabel.text = currentTime;
+        //        self.currentTimeLabel.textColor = [UIColor whiteColor];
+        //        [self.currentTimeLabel setFont:[UIFont fontWithName:@"Arial" size:17]];
+        //        self.currentTimeLabel.numberOfLines = 0;
+        //        self.currentTimeLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+        //        CGSize currentTimeLabelExpectSize = [self.currentTimeLabel sizeThatFits:maximumLabelSize];
+        //        [self.view addSubview:self.currentTimeLabel];
+        //        [self.currentTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        //            //make.centerX.mas_equalTo(-9);
+        //            make.centerX.equalTo(cell.contentView).offset(-9);
+        //            make.centerY.mas_equalTo(self.currentLocationLabel.mas_bottom).offset(10);
+        //            make.size.mas_equalTo(CGSizeMake(currentTimeLabelExpectSize.width, currentTimeLabelExpectSize.height));
+        //        }];
         
         //设置天气图标
         
@@ -428,138 +401,127 @@
         
     }else if (indexPath.row == 1){
         //风速和气压显示
-        self.windSpeedAndPressureImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 360, 170)];
+        //        self.windSpeedAndPressureImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 360, 170)];
+        self.windSpeedAndPressureImageView = [[UIImageView alloc] init];
         self.windSpeedAndPressureImageView.image = [UIImage imageNamed:@"windSpeedAndPressure"];
         
         UIImageView *bigpole = [[UIImageView alloc] initWithFrame:CGRectMake(40, 80, 10, 70)];
         bigpole.image = [UIImage imageNamed:@"bigpole"];
-        blade_big = [[UIImageView alloc] initWithFrame:CGRectMake(20, 55, 50, 50)];
-        blade_big.image = [UIImage imageNamed:@"blade_big"];
+        self.blade_big = [[UIImageView alloc] initWithFrame:CGRectMake(20, 55, 50, 50)];
+        self.blade_big.image = [UIImage imageNamed:@"blade_big"];
         
         UIImageView *smallpole = [[UIImageView alloc] initWithFrame:CGRectMake(80, 100, 8, 50)];
         smallpole.image = [UIImage imageNamed:@"smallpole"];
-        blade_s = [[UIImageView alloc] initWithFrame:CGRectMake(69, 88, 30, 30)];
-        blade_s.image = [UIImage imageNamed:@"blade_s"];
+        self.blade_s = [[UIImageView alloc] initWithFrame:CGRectMake(69, 88, 30, 30)];
+        self.blade_s.image = [UIImage imageNamed:@"blade_s"];
         
         [self.windSpeedAndPressureImageView addSubview:bigpole];
-        [self.windSpeedAndPressureImageView addSubview:blade_big];
+        [self.windSpeedAndPressureImageView addSubview:self.blade_big];
         [self.windSpeedAndPressureImageView addSubview:smallpole];
-        [self.windSpeedAndPressureImageView addSubview:blade_s];
-        
-        //self.windSpeedAndPressureImageView.hidden = [self switchHuode:@"fengsuqiya.txt"];
+        [self.windSpeedAndPressureImageView addSubview:self.blade_s];
         
         NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(windMillTurn) object:nil];
         [thread start];
         
+        self.windSpeedAndPressureImageView.hidden = [self switchHuode:@"fengsuqiya.txt"];
+        [cell.contentView addSubview:_windSpeedAndPressureImageView];
+        [self.windSpeedAndPressureImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(cell.contentView).offset(5);
+            make.left.equalTo(cell.contentView).offset(5);
+            make.right.equalTo(cell.contentView).offset(-5);
+        }];
+        
+        CGFloat interval = 5;
+        
+        if (![self switchHuode:@"fengsuqiya.txt"]) {
+            //self.windSpeedAndPressureImageView.frame = CGRectMake(5, tmp1, 360, 170);
+            
+            [cell.contentView addSubview:self.windSpeedAndPressureImageView];
+            [self.windSpeedAndPressureImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(cell.contentView).offset(interval);
+                make.left.equalTo(cell.contentView).offset(5);
+                make.right.equalTo(cell.contentView).offset(-5);
+            }];
+            
+            //tmp1 = tmp1 + self.windSpeedAndPressureImageView.frame.size.height + 5;
+            interval = interval + 170 + 5;
+            
+        }
+        //self.windSpeedAndPressureImageView.hidden = [self switchHuode:@"fengsuqiya.txt"];
+        
+        NSThread *thread1 = [[NSThread alloc] initWithTarget:self selector:@selector(windMillTurn) object:nil];
+        [thread1 start];
+        
         [cell.contentView addSubview:self.windSpeedAndPressureImageView];
         
-        //紫外线强度
-        self.ultravioletraysView.frame = CGRectMake(5, 180, 360, 39);
-        [cell.contentView addSubview:self.ultravioletraysView];
-//        self.ultravioletraysView.hidden = [self switchHuode:@"ziwaixian.txt"];
-
-        //pm25View添加
-//        pmbeijing = [[UIImageView alloc] initWithFrame:CGRectMake(5, 225, 360, 40)];
-//        pmbeijing.image = [UIImage imageNamed:@"beijing"];
-//        
-//        UILabel *pm = [[UILabel alloc] initWithFrame:CGRectMake(1, 5, 200, 30)];
-//        pm.textColor = [UIColor whiteColor];
-//        pm.text = @"pm2.5指数:";
-//        [pm setBackgroundColor:[UIColor clearColor]];
-//        [pmbeijing addSubview:pm];
-//        
-//        
-//        pm25 = [[UILabel alloc] initWithFrame:CGRectMake(300, 5, 30, 30)];
-//        pm25.textColor = [UIColor whiteColor];
-//        [pm25 setFont:[UIFont fontWithName:pm25FontName size:pm25FontSize]];
-//        [pm25 setNumberOfLines:0];
-//        [pm25 setBackgroundColor:[UIColor clearColor]];
-//        
-//        pm25.text = [[[responseObject1 objectForKey:@"results"] objectAtIndex:0] objectForKey:@"pm25"];
-//        [pmbeijing addSubview:pm25];
-//        
-//        
-//        //        [cell.contentView addSubview:pmbeijing];
-//        pmbeijing.hidden = [self switchHuode:@"pm25.txt"];
-        self.pm25View.frame = CGRectMake(5, 225, 360, 39);
-        [cell.contentView addSubview:self.pm25View];
+        if (![self switchHuode:@"ziwaixian.txt"]) {
+            
+            [cell.contentView addSubview:self.ultravioletraysView];
+            [self.ultravioletraysView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(cell.contentView).offset(interval);
+                make.left.equalTo(cell.contentView).offset(5);
+                make.right.equalTo(cell.contentView).offset(-5);
+            }];
+            
+            //tmp1 = tmp1 +self.UltravioletraysImageView.frame.size.height + 5;
+            interval = interval + 40 +5;
+        }
         
-        self.dressingIndexView.frame = CGRectMake(5, 275, 50, 50);
-        [cell.contentView addSubview:self.dressingIndexView];
-//
-//        UIImageView *clothes = [[UIImageView alloc] initWithFrame:CGRectMake(1, 10, 50, 50)];
-//        clothes.image = [UIImage imageNamed:@"clothes"];
-//        
-//        for (int j = 0; j < [[[[responseObject1 objectForKey:@"results"] objectAtIndex:0] objectForKey:@"index"] count]; j++) {
-//            for (id key in [[[[responseObject1 objectForKey:@"results"] objectAtIndex:0] objectForKey:@"index"] objectAtIndex:j]) {
-//                id value = [[[[[responseObject1 objectForKey:@"results"] objectAtIndex:0] objectForKey:@"index"] objectAtIndex:j] objectForKey:key];
-//                
-//                if ([key isEqualToString:@"des"] && j == 0) {
-//                    
-//                    chuanyilabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 5, 290, 50)];
-//                    chuanyilabel.textColor = [UIColor whiteColor];
-//                    chuanyilabel.font = [UIFont fontWithName:clothesFontName size:clothesFontSize];
-//                    [chuanyilabel setNumberOfLines:3];
-//                    chuanyilabel.text = value;
-//                    [chuanyibeijing addSubview:chuanyilabel];
-//                    
-//                }
-//                
-//            }
-//            
-//        }
-//        
-//        [chuanyibeijing addSubview:clothes];
-//        //        [cell.contentView addSubview:chuanyibeijing];
-//        chuanyibeijing.hidden = [self switchHuode:@"chuanyi.txt"];
-//        NSLog(@"chuanyibeijing----%f",chuanyibeijing.frame.size.height);
-//        
-//        CGFloat tmp1 = 5;
-//        
-//        if (![self switchHuode:@"fengsuqiya.txt"]) {
-//            self.windSpeedAndPressureImageView.frame = CGRectMake(5, tmp1, 360, 170);
-//            tmp1 = tmp1 + self.windSpeedAndPressureImageView.frame.size.height + 5;
-//            [cell.contentView addSubview:self.windSpeedAndPressureImageView];
-//        }
-//        
-//        if (![self switchHuode:@"ziwaixian.txt"]) {
-//            self.UltravioletraysImageView.frame = CGRectMake(5, tmp1, 360, 40);
-//            tmp1 = tmp1 +self.UltravioletraysImageView.frame.size.height + 5;
-//            [cell.contentView addSubview:self.UltravioletraysImageView];
-//        }
-//        
-//        if (![self switchHuode:@"pm25.txt"]) {
-//            pmbeijing.frame = CGRectMake(5, tmp1, 360, 40);
-//            tmp1 = tmp1 + pmbeijing.frame.size.height + 5;
-//            [cell.contentView addSubview:pmbeijing];
-//        }
-//        
+        if (![self switchHuode:@"pm25.txt"]) {
+            // pmbeijing.frame = CGRectMake(5, tmp1, 360, 40);
+            [cell.contentView addSubview:self.pm25View];
+            [self.pm25View mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(cell.contentView).offset(interval);
+                make.left.equalTo(cell.contentView).offset(5);
+                make.right.equalTo(cell.contentView).offset(-5);
+            }];
+            //tmp1 = tmp1 + pmbeijing.frame.size.height + 5;
+            interval = interval + 40 + 5;
+        }
+        
 //        if (![self switchHuode:@"chuanyi.txt"]) {
-//            chuanyibeijing.frame = CGRectMake(5, tmp1, 360, 80);
-//            [cell.contentView addSubview:chuanyibeijing];
+//            //          chuanyibeijing.frame = CGRectMake(5, tmp1, 360, 80);
+//            [cell.contentView addSubview:self.dressingIndexView];
+//            [self.dressingIndexView mas_makeConstraints:^(MASConstraintMaker *make) {
+//                make.top.equalTo(cell.contentView).offset(interval);
+//                make.left.equalTo(cell.contentView).offset(5);
+//                make.right.equalTo(cell.contentView).offset(-5);
+//            }];
 //        }
         
     }
     else if (indexPath.row == 2){
-//        if ((self.highTemperatureArray == nil && self.lowTemperatureArray == nil)) {
-//            drawLine = [[UIImageView alloc] initWithFrame:CGRectMake(5, 20, 360, 180)];
-//            drawLine.image = [UIImage imageNamed:@"backgroundofLinegraph"];
-//            [cell.contentView addSubview:drawLine];
-//        } else {
-//            drawLine = [[UIImageView alloc] initWithFrame:CGRectMake(5, 20, 360, 180)];
-//            drawLine.image = [UIImage imageNamed:@"backgroundofLinegraph_1"];
-//            iWDrawLineView *line = [[iWDrawLineView alloc] init];
-//            [line setHigh:self.highTemperatureArray];
-//            [line setLow:self.lowTemperatureArray];
-//            line.backgroundColor = [UIColor clearColor];
-//            line.frame = drawLine.frame;
-//            [drawLine addSubview:line];
-//            [cell.contentView addSubview:drawLine];
-//        }
+        if ((self.highTemperatureArray == nil && self.lowTemperatureArray == nil)) {
+            //drawLine = [[UIImageView alloc] initWithFrame:CGRectMake(5, 20, 360, 180)];
+            self.drawLine = [[UIImageView alloc] init];
+            self.drawLine.image = [UIImage imageNamed:@"backgroundofLinegraph"];
+            [cell.contentView addSubview:self.drawLine];
+            [self.drawLine mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.left.equalTo(cell.contentView).offset(5);
+                make.right.bottom.equalTo(cell.contentView).offset(-5);
+            }];
+        } else {
+            
+            if ((self.highTemperatureArray == nil && self.lowTemperatureArray == nil)) {
+                self.drawLine = [[UIImageView alloc] initWithFrame:CGRectMake(5, 20, 360, 180)];
+                self.drawLine.image = [UIImage imageNamed:@"backgroundofLinegraph"];
+                [cell.contentView addSubview:self.drawLine];
+            } else {
+                self.drawLine = [[UIImageView alloc] initWithFrame:CGRectMake(5, 20, 360, 180)];
+                self.drawLine.image = [UIImage imageNamed:@"backgroundofLinegraph_1"];
+                iWDrawLineView *line = [[iWDrawLineView alloc] init];
+                [line setHigh:self.highTemperatureArray];
+                [line setLow:self.lowTemperatureArray];
+                line.backgroundColor = [UIColor clearColor];
+                line.frame = self.drawLine.frame;
+                [self.drawLine addSubview:line];
+                [cell.contentView addSubview:self.drawLine];
+            }
+            
+        }
     }
     return cell;
 }
-
 -(void)backtemperature{
     // [[NSNotificationCenter defaultCenter] postNotificationName:@"high" object:high];
     //  [[NSNotificationCenter defaultCenter] postNotificationName:@"low" object:low];
@@ -577,8 +539,8 @@
     i++;
     i = i % 18;
     CGAffineTransform traxs = CGAffineTransformMakeRotation(3.14 * 20.0 * i / 180);
-    blade_big.transform = traxs;
-    blade_s.transform = traxs;
+    self.blade_big.transform = traxs;
+    self.blade_s.transform = traxs;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -590,59 +552,49 @@
     
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
         return [[UIScreen mainScreen] bounds].size.height;
+    }else if (indexPath.row ==1){
+        CGFloat windSpeedAndPressureImageViewHigh;
+        CGFloat UltravioletraysImageViewHigh;
+        CGFloat pm25ViewHigh = 45;
+        CGFloat dressingIndexViewHigh = 45;
+        
+        if (self.windSpeedAndPressureImageView.hidden) {
+            windSpeedAndPressureImageViewHigh = 0;
+        }else{
+            windSpeedAndPressureImageViewHigh = 180;
+        }
+        
+        if (self.UltravioletraysImageView.hidden) {
+            UltravioletraysImageViewHigh = 0;
+        }else{
+            UltravioletraysImageViewHigh = 45;
+        }
+        
+        if (self.pm25View.hidden) {
+            pm25ViewHigh = 0;
+        }else{
+            pm25ViewHigh = 45;
+        }
+        
+//        if (self.dressingIndexView.hidden) {
+//            dressingIndexViewHigh = 0;
+//        }else{
+//            dressingIndexViewHigh = 45;
+//        }
+        
+        if (windSpeedAndPressureImageViewHigh + UltravioletraysImageViewHigh + pm25ViewHigh != 0) {
+            return  windSpeedAndPressureImageViewHigh + UltravioletraysImageViewHigh + pm25ViewHigh + 10;
+        }else{
+            return windSpeedAndPressureImageViewHigh + UltravioletraysImageViewHigh + pm25ViewHigh;
+        }
+        
+    }else {
+        return self.drawLine.frame.size.height + 10 + self.drawLine.frame.origin.y;
     }
     return [[UIScreen mainScreen] bounds].size.height;
-//        else if (indexPath.row ==1){
-//        NSLog(@"********123*************");
-//        CGFloat fengsuandqiyahigh;
-//        CGFloat beijinghigh;
-//        CGFloat pmbeijinghigh;
-//        CGFloat chuanyibeijinghigh;
-//        if (self.windSpeedAndPressureImageView.hidden) {
-//            fengsuandqiyahigh = 0;
-//            NSLog(@"隐藏");
-//        }else{
-//            fengsuandqiyahigh = self.windSpeedAndPressureImageView.frame.size.height;
-//            NSLog(@"显示");
-//        }
-//        
-//        if (self.UltravioletraysImageView.hidden) {
-//            beijinghigh = 0;
-//        }else{
-//            beijinghigh = self.UltravioletraysImageView.frame.size.height;
-//        }
-//        
-//        if (pmbeijing.hidden) {
-//            pmbeijinghigh = 0;
-//        }else{
-//            pmbeijinghigh = self.UltravioletraysImageView.frame.size.height;
-//        }
-//        
-//        if (chuanyibeijing.hidden) {
-//            chuanyibeijing = 0;
-//        }else{
-//            chuanyibeijinghigh = chuanyibeijing.frame.size.height;
-//        }
-//        
-//        NSLog(@"------%f",fengsuandqiyahigh + beijinghigh + pmbeijinghigh + chuanyibeijinghigh);
-//        
-//        if (fengsuandqiyahigh + beijinghigh + pmbeijinghigh + chuanyibeijinghigh != 0) {
-//            return  fengsuandqiyahigh + beijinghigh + pmbeijinghigh + chuanyibeijinghigh + 10;
-//        }else{
-//            return fengsuandqiyahigh + beijinghigh + pmbeijinghigh + chuanyibeijinghigh;
-//        }
-//        
-//        
-//        
-//        
-//    }else {
-//        return drawLine.frame.size.height + 10 + drawLine.frame.origin.y;
-//    }
-    
 }
 
 - (void) openOrCloseLeftList
@@ -689,12 +641,9 @@
  */
 - (void)getWeather
 {
-    NSString *search1 = [[NSString alloc] init];
-    search1 = @"北京";
-    
     NSString *api = @"http://api.map.baidu.com/telematics/v3/weather?location=";
     NSString *key = @"&output=json&ak=tjWqsCAkIBTnIGXEDHqlNNbl&mcode=com.HeiongjiangUniversity.LiuJian.iWeather";
-    NSString *str = [NSString stringWithFormat:@"%@%@%@",api,search1,key];
+    NSString *str = [NSString stringWithFormat:@"%@%@%@",api,self.search,key];
     
     NSString *cityAddress = [str stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     

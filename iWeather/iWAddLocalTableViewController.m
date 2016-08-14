@@ -111,7 +111,7 @@
     NSArray *listTeams = [self.cityData objectForKey:groupName];
     self.cityName = [listTeams objectAtIndex:[indexPath row]];
     
-    [self backCityName];
+    [self returnCityName];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -122,7 +122,7 @@
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    [self backCityName];
+    [self returnCityName];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -131,9 +131,9 @@
     self.cityName = searchText;
 }
 
--(void)backCityName
+-(void)returnCityName
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"fanhui" object:self.cityName];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"returnCityName" object:self.cityName];
     [self addCityToFile:self.cityName];
 }
 

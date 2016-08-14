@@ -11,23 +11,41 @@
             <rect key="frame" x="0.0" y="0.0" width="360" height="39"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Ultravioletrays" translatesAutoresizingMaskIntoConstraints="NO" id="aaz-yE-r5W">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ultravioletrays" translatesAutoresizingMaskIntoConstraints="NO" id="aaz-yE-r5W">
                     <rect key="frame" x="0.0" y="0.0" width="360" height="39"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="pm2.5指数:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mv0-qE-FN2">
-                    <rect key="frame" x="0.0" y="0.0" width="99" height="39"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pm2.5指数:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mv0-qE-FN2">
+                    <rect key="frame" x="2" y="0.0" width="99" height="39"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="39" id="9QQ-nI-MaO"/>
+                        <constraint firstAttribute="width" constant="99" id="Wgq-Ml-3BT"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="---" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJF-D3-hAv">
-                    <rect key="frame" x="321" y="0.0" width="39" height="39"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJF-D3-hAv">
+                    <rect key="frame" x="319" y="0.0" width="39" height="39"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="39" id="BJl-u3-qZx"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Mv0-qE-FN2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6Dz-Ga-Vbo"/>
+                <constraint firstItem="OJF-D3-hAv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6kD-Jc-YYm"/>
+                <constraint firstAttribute="bottom" secondItem="OJF-D3-hAv" secondAttribute="bottom" id="MXR-mT-IOj"/>
+                <constraint firstItem="aaz-yE-r5W" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="OTa-Zq-13p"/>
+                <constraint firstItem="aaz-yE-r5W" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="T9T-Ps-kPX"/>
+                <constraint firstAttribute="trailing" secondItem="aaz-yE-r5W" secondAttribute="trailing" id="Zjb-7N-Jw7"/>
+                <constraint firstAttribute="bottom" secondItem="aaz-yE-r5W" secondAttribute="bottom" id="jvy-hX-qFG"/>
+                <constraint firstAttribute="trailing" secondItem="OJF-D3-hAv" secondAttribute="trailing" constant="2" id="txF-lF-qpr"/>
+                <constraint firstItem="Mv0-qE-FN2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="2" id="zhh-4J-tqK"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface iWDressingIndexView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *dressingIndexLabel;
 
 @end
